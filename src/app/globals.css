@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #000000;
+  --bgSoft: #0a0a0a;
+  --text: white;
+  --textSoft: #e5e5e5;
+  --btn: #166534;
+}
