@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connection = {};
 
-export const connectDB = async function () {
+export const connectDB = async () => {
   try {
     if (connection.isConnected) {
       console.log("Using existing connection");
@@ -10,9 +10,8 @@ export const connectDB = async function () {
     }
     const db = await mongoose.connect(process.env.MONGODB_URI);
     connection.isConnected = db.connections[0].readyState;
-    console.log("Connected");
   } catch (error) {
-    console.log(error);
+    console.log("db error: " + error);
     throw new Error("Problem in connection!");
   }
 };

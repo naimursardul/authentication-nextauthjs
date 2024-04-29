@@ -3,7 +3,6 @@ import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import { connectDB } from "./db/db";
 import { User } from "./models/userModel";
-import { hash } from "./utils/utils";
 
 export const authConfig = {
   pages: {
@@ -84,7 +83,7 @@ export const authConfig = {
       return session;
     },
 
-    authorized({ auth, request }) {
+    async authorized({ auth, request }) {
       console.log(auth);
       const user = auth?.user;
       const isAdminPage = request.nextUrl.pathname?.startsWith("/admin");
