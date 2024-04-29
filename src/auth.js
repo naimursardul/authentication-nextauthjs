@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
-import { connectDB } from "./db/db";
-import { User } from "./models/userModel";
+import { connectDB } from "./db/db.js";
+import { User } from "./models/userModel.js";
 
 export const authConfig = {
   pages: {

@@ -1,9 +1,9 @@
 "use server";
 
 import { signIn } from "@/auth";
-import { connectDB } from "@/db/db";
-import { User } from "@/models/userModel";
-import { hash } from "@/utils/utils";
+import { connectDB } from "@/db/db.js";
+import { User } from "@/models/userModel.js";
+import { hash } from "@/utils/utils.js";
 import { redirect } from "next/navigation";
 
 //  REGISTER USER
