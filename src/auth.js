@@ -37,24 +37,16 @@ export const authConfig = {
     }),
     Credentials({
       authorize: async (credential) => {
-        let user = null;
+        let user = { ...credential };
         console.log(credential);
-        try {
-          await connectDB();
-          user = await User.findOne({ email: credential?.email });
-
-          if (!user) {
-            return null;
-          }
-
-          const { password, ...userDetails } = user._doc;
-
-          console.log(userDetails);
-          return { ...userDetails };
-        } catch (error) {
-          console.log(error);
+        if (!user) {
           return null;
         }
+        const { username, email, isAdmin, ...userDetails } = user;
+
+        console.log(user);
+        console.log(username, email, isAdmin);
+        return { username, email, isAdmin };
       },
     }),
   ],

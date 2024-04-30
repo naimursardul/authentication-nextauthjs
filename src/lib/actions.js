@@ -67,13 +67,10 @@ export const loginUser = async (prev, formData) => {
       return { error: "User not found!" };
     } else {
       const hashedPw = hash(password);
-      console.log(hashedPw);
       if (hashedPw !== user?._doc.password) {
         console.log("wrong pw");
         return { error: "Wrong Password!" };
       }
-
-      console.log("passed2");
     }
   } catch (error) {
     console.log(error);
@@ -83,6 +80,6 @@ export const loginUser = async (prev, formData) => {
     }
     return { error: "Something went wrong" };
   }
-  await signIn("credentials", { email, password });
+  await signIn("credentials", { ...user?._doc });
   return true;
 };
