@@ -18,6 +18,7 @@ export default async function Profile() {
           width={50}
           height={50}
           className="rounded-full"
+          alt="jj"
         />
       )}
     </div>
