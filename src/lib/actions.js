@@ -83,3 +83,29 @@ export const loginUser = async (prev, formData) => {
   await signIn("credentials", { ...user?._doc });
   return true;
 };
+
+//
+// export const cred = async (profile) => {
+//   try {
+//     await connectDB();
+//     console.log(profile);
+
+//     let signedUser = null;
+//     signedUser = await User.findOne({ email: profile?.email });
+//     console.log(signedUser?._doc);
+//     if (signedUser) {
+//       return { ...signedUser?._doc };
+//     }
+//     signedUser = await new User({
+//       username: profile?.name,
+//       img: profile?.picture,
+//       email: profile?.email,
+//       isAdmin: false,
+//     });
+//     await signedUser.save();
+//     return { ...signedUser?._doc };
+//   } catch (error) {
+//     console.log(error);
+//     return null;
+//   }
+// };

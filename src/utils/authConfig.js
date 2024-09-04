@@ -10,6 +10,7 @@ export const authConfig = {
   providers: [
     Google({
       async profile(profile) {
+        "use server";
         try {
           await connectDB();
           console.log(profile);
